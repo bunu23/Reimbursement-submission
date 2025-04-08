@@ -1,59 +1,62 @@
-<h1>Submit a New Receipt</h1>
+<div class="container">
+  <h1 class="title">Reimbursement Receipt Submission</h1>
 
-<form (ngSubmit)="onSubmit()" #receiptForm="ngForm">
-  <div style="margin-bottom: 12px;">
-    <label>Date:</label><br />
-    <input type="date" [(ngModel)]="purchaseDate" name="purchaseDate" required />
+  <form (ngSubmit)="onSubmit()" #receiptForm="ngForm" class="receipt-form">
+    <div class="form-group">
+      <label for="purchaseDate">Date:</label>
+      <input type="date" id="purchaseDate" name="purchaseDate" [(ngModel)]="purchaseDate" required />
+    </div>
+
+    <div class="form-group">
+      <label for="amount">Amount:</label>
+      <input type="number" id="amount" name="amount" [(ngModel)]="amount" required min="0" />
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <input type="text" id="description" name="description" [(ngModel)]="description" required />
+    </div>
+
+    <div class="form-group">
+      <label for="receiptFile">Receipt File:</label>
+      <input type="file" id="receiptFile" (change)="onFileSelected($event)" />
+    </div>
+
+    <button type="submit" class="btn">Submit</button>
+  </form>
+
+  <!-- Table -->
+  <h2 class="section-title">Submitted Receipts</h2>
+
+  <div class="table-container" *ngIf="receipts.length > 0; else noReceipts">
+    <table class="receipts-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Date</th>
+          <th>Amount</th>
+          <th>Description</th>
+          <th>Receipt</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let r of receipts">
+          <td>{{ r.id }}</td>
+          <td>{{ r.purchaseDate | date: 'shortDate' }}</td>
+          <td>${{ r.amount }}</td>
+          <td>{{ r.description }}</td>
+          <td>
+            <a *ngIf="r.receiptFilePath" [href]="'https://localhost:5001/' + r.receiptFilePath" target="_blank">
+              View
+            </a>
+            <span *ngIf="!r.receiptFilePath">—</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 
-  <div style="margin-bottom: 12px;">
-    <label>Amount:</label><br />
-    <input type="number" [(ngModel)]="amount" name="amount" required min="0" />
-  </div>
-
-  <div style="margin-bottom: 12px;">
-    <label>Description:</label><br />
-    <input type="text" [(ngModel)]="description" name="description" required />
-  </div>
-
-  <div style="margin-bottom: 12px;">
-    <label>Receipt File:</label><br />
-    <input type="file" (change)="onFileSelected($event)" />
-  </div>
-
-  <button type="submit">Submit</button>
-</form>
-
-<hr />
-
-<h2>Submitted Receipts</h2>
-
-<table *ngIf="receipts.length > 0; else noReceipts" border="1" cellpadding="10" cellspacing="0">
-  <thead>
-    <tr>
-      <th>ID</th>
-      <th>Date</th>
-      <th>Amount</th>
-      <th>Description</th>
-      <th>Receipt File</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let r of receipts">
-      <td>{{ r.id }}</td>
-      <td>{{ r.purchaseDate | date: 'shortDate' }}</td>
-      <td>${{ r.amount }}</td>
-      <td>{{ r.description }}</td>
-      <td>
-        <a *ngIf="r.receiptFilePath" [href]="'https://localhost:5001/' + r.receiptFilePath" target="_blank">
-          View
-        </a>
-        <span *ngIf="!r.receiptFilePath">—</span>
-      </td>
-    </tr>
-  </tbody>
-</table>
-
-<ng-template #noReceipts>
-  <p>No receipts submitted yet.</p>
-</ng-template>
+  <ng-template #noReceipts>
+    <p class="empty">No receipts submitted yet.</p>
+  </ng-template>
+</div>
