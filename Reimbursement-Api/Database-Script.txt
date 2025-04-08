@@ -1,0 +1,25 @@
+-- Select the database to use
+USE reimbursements;
+
+-- Create the table
+CREATE TABLE `Receipts` (
+    `Id` INT NOT NULL AUTO_INCREMENT,
+    `PurchaseDate` DATETIME NOT NULL,
+    `Amount` DECIMAL(10, 2) NOT NULL,
+    `Description` TEXT NOT NULL,
+    `ReceiptFilePath` TEXT NULL,
+    PRIMARY KEY (`Id`)
+);
+
+-- Insert sample rows
+INSERT INTO `Receipts` (`PurchaseDate`, `Amount`, `Description`, `ReceiptFilePath`) VALUES
+    (NOW() - INTERVAL 10 DAY, 123.45, 'Office supplies', NULL),
+    (NOW() - INTERVAL 9 DAY, 250.00, 'Conference registration', NULL),
+    (NOW() - INTERVAL 8 DAY, 80.99, 'Taxi to event', NULL),
+    (NOW() - INTERVAL 7 DAY, 15.75, 'Lunch meeting', NULL),
+    (NOW() - INTERVAL 6 DAY, 47.30, 'Parking', NULL),
+    (NOW() - INTERVAL 5 DAY, 500.00, 'Flight booking', NULL),
+    (NOW() - INTERVAL 4 DAY, 340.10, 'Hotel stay', NULL),
+    (NOW() - INTERVAL 3 DAY, 33.25, 'Printing materials', NULL),
+    (NOW() - INTERVAL 2 DAY, 60.00, 'Team lunch', NULL),
+    (NOW() - INTERVAL 1 DAY, 19.95, 'Catering snacks', NULL);
