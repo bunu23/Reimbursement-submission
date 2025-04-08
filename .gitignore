@@ -1,0 +1,46 @@
+# Build results
+bin/
+obj/
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# VS Code settings
+.vscode/
+
+# Rider settings
+.idea/
+
+# Dotnet CLI packages and test results
+*.nupkg
+*.snupkg
+*.vsp
+*.vspx
+*.coverage
+*.coveragexml
+TestResults/
+*.vsmdi
+
+# NuGet packages folder
+packages/
+
+# Other
+*.db
+*.sqlite
+.env
+.env.*
+
+# ASP.NET environment files
+appsettings.Development.json
+secrets.json
+
