@@ -258,4 +258,10 @@ App available at: [http://localhost:4200](http://localhost:4200)
 
 [🔼 Back to Top](#reimbursement-submission)
 
+# Screenshot
+
+Here is the receipt submission UI:
+
+![Receipt Submission UI](../ReimbursmentPrj/screenshot/ui.png)
+
 ---
