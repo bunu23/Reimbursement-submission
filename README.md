@@ -264,5 +264,6 @@ App available at: [http://localhost:4200](http://localhost:4200)
 Here is the receipt submission UI:
 
 ![Receipt Submission UI](screenshot/ui.png)
+![Submitted Receipts](screenshot/submittedreceipts.png)
 
 ---
