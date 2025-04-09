@@ -27,7 +27,7 @@ I built this application from scratch using **ASP.NET Core Web API**, **MySQL**,
 
   - **Purchase Date** – the date the expense was incurred
   - **Amount** – how much was spent
-  - **Description** – a brief reason or context for the purchase (e.g., "Conference lunch", "Office supplies")
+  - **Description** – a brief reason or context for the purchase (for example., "Conference lunch", "Office supplies")
   - **Receipt File Upload (Optional)** – users may upload a digital copy of their receipt (for example PDF, image, word file.).
 
 - **Data Storage in MySQL**  
@@ -233,7 +233,7 @@ App available at: [http://localhost:4200](http://localhost:4200)
 
 ### a. Assumptions
 
-- There's **no authentication or user-specific filtering**, as the focus is on basic functionality.
+- There is **no authentication or user-specific filtering**, as the focus is on basic functionality.
 - File upload is **optional**, but the date, amount, and description are required fields.
 - One-page UI with form + table is sufficient
 - File uploads are stored on the server under a local `Uploads/` folder, and links are returned in the response for display.
@@ -244,17 +244,17 @@ App available at: [http://localhost:4200](http://localhost:4200)
 - **CORS Issue**: Angular couldn't access the API due to CORS restrictions.  
   ➤ **Solved** by adding a CORS policy in `.NET` and enabling it in `Program.cs`.
 - **Database Seeding Failed**: Seeding failed due to `ReceiptFilePath` being non-nullable.  
-  ➤ **Solved** by making the property nullable and updating the schema via EF migration.
+  ➤ **Solved** by making the property nullable and updating the schema.
 - **Incorrect File Links**: File paths didn’t render correctly in the UI.  
   ➤ **Solved** by prefixing paths with the backend base URL in Angular.
 
-## c. Highlights in my Code
+### c. Highlights in my Code
 
 - Clean, testable backend architecture (**Controller → Service → DTO ->Repository**)
 - The backend is designed with **separation of concerns** using IRepository, IService, and Controller layers.
 - Modern Angular app using standalone components
 - Real file uploads, database storage, and real-time view updates
-- Fully documented, easily extensible (pagination, auth, cloud deploy ready)
+- Open for Extension, SOLID principle
 
 [🔼 Back to Top](#reimbursement-submission)
 
