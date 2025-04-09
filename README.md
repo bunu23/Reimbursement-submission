@@ -15,6 +15,7 @@ I built this application from scratch using **ASP.NET Core Web API**, **MySQL**,
 - [Getting Started](#getting-started)
 - [Time Tracking](#time-tracking)
 - [Comments](#comments)
+- [Screenshot](#screenshot)
 
 [🔼 Back to Top](#reimbursement-submission)
 
@@ -262,6 +263,6 @@ App available at: [http://localhost:4200](http://localhost:4200)
 
 Here is the receipt submission UI:
 
-![Receipt Submission UI](../ReimbursmentPrj/screenshot/ui.png)
+![](../ReimbursmentPrj/screenshot/ui.png)
 
 ---
